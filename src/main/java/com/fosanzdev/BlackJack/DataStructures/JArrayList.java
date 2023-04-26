@@ -1,6 +1,10 @@
 package com.fosanzdev.BlackJack.DataStructures;
 
-public class JArrayList<T> {
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
+public class JArrayList<T> implements Iterable<T>{
 
     private static final int DEFAULT_SIZE = 10;
     private static final double INCREMENT_FACTOR = 1.5;
@@ -67,5 +71,38 @@ public class JArrayList<T> {
             }
         }
         return -1;
+    }
+
+    /**
+     * Iterador de la clase JArrayList. Necesario para poder usar el foreach
+     * @return Iterador
+     */
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<>() {
+            private int index = 0;
+
+            // Checkea si hay un elemento siguiente
+            @Override
+            public boolean hasNext() {
+                return index < count;
+            }
+
+            // Devuelve el elemento siguiente
+            @Override
+            public T next() {
+                return array[index++];
+            }
+        };
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+        Iterable.super.forEach(action);
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return Iterable.super.spliterator();
     }
 }
