@@ -15,4 +15,8 @@ public abstract class Jugador {
         this.apuesta = 0;
         this.mano = new Mano();
     }
+
+    public void setMoney(int dinero){
+        this.dinero = dinero;
+    }
 }

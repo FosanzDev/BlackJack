@@ -1,6 +1,7 @@
 package com.fosanzdev.BlackJack.Game;
 
 import com.fosanzdev.BlackJack.DataStructures.JArrayList;
+import com.fosanzdev.BlackJack.Players.JugadorHumano;
 import com.fosanzdev.BlackJack.Players.JugadorIA;
 import com.fosanzdev.BlackJack.Players.Jugador;
 import com.fosanzdev.BlackJack.Players.Strategies.Strategy;
@@ -15,21 +16,30 @@ public class GameFlow {
     private int baseBet;
     private int playerMoney;
     private int dealerMoney;
-    private Mesa mesa;
+    private final Mesa mesa;
 
-    public GameFlow(int numPlayers, int baseBet, int playerMoney, Jugador... jugadores) {
+    public GameFlow(int numPlayers, int baseBet, int playerMoney, JugadorHumano jugador) {
+        // NOTE: This is the constructor that is called from the main method
         this.numPlayers = numPlayers;
         this.baseBet = baseBet;
         this.playerMoney = playerMoney;
         this.dealerMoney = playerMoney * numPlayers * 2;
+        // Add numPlayers-1 random players to the game
+        JArrayList<Jugador> players = new JArrayList<Jugador>();
+        for (int i = 0; i < numPlayers-1; i++) {
+            players.add(new JugadorIA("CPU " + (i + 1), playerMoney, Strategy.getRandomStrategy()));
+        }
+        // Add the human player to the game
+        players.add(jugador);
+
+        // Create the game table
+        this.mesa = new Mesa(players, new JugadorIA("Crupier", dealerMoney, Strategy.getRandomStrategy()));
     }
 
-    public GameFlow(Jugador... jugadores) {
-        this(DEFAULT_PLAYERS, DEFAULT_BASE_BET, DEFAULT_PLAYER_MONEY, jugadores);
-        this.mesa = new Mesa(
-                new JArrayList<Jugador>(jugadores),
-                new JugadorIA("Crupier", dealerMoney, Strategy.getRandomStrategy())
-        );
+    //TODO Player is only one, not an array
+
+    public GameFlow(JugadorHumano jugador) {
+        this(DEFAULT_PLAYERS, DEFAULT_BASE_BET, DEFAULT_PLAYER_MONEY, jugador);
     }
 
     public void setBaseBet(int baseBet) {
@@ -48,8 +58,12 @@ public class GameFlow {
         this.numPlayers = numPlayers;
     }
 
-    public void startGame(){
+    public void newGame(){
         mesa.nuevoMazo();
+        for (Jugador jugador : mesa.getJugadores()) {
+            jugador.setMoney(playerMoney);
+        }
+        mesa.crupier.setMoney(dealerMoney);
     }
 
     public void startRound(){

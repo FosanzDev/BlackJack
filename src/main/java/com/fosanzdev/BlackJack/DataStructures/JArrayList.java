@@ -3,6 +3,7 @@ package com.fosanzdev.BlackJack.DataStructures;
 import com.fosanzdev.BlackJack.Players.Jugador;
 import com.fosanzdev.BlackJack.Players.JugadorHumano;
 import com.fosanzdev.BlackJack.Players.JugadorIA;
+import com.fosanzdev.BlackJack.Players.Strategies.Strategy;
 
 import java.util.Iterator;
 import java.util.Spliterator;
@@ -17,7 +18,16 @@ public class JArrayList<T> implements Iterable<T>{
 
     private int count = 0;
 
-    public JArrayList(Jugador[] jugadores) {
+    public JArrayList(Jugador... jugadores) {
+        for (int i = 0; i < jugadores.length; i++) {
+            add((T) jugadores[i]);
+        }
+    }
+
+    public JArrayList(Strategy... strategies){
+        for (int i = 0; i < strategies.length; i++) {
+            add((T) strategies[i]);
+        }
     }
 
     public JArrayList() {
@@ -118,5 +128,18 @@ public class JArrayList<T> implements Iterable<T>{
 
     public T getRandom() {
         return array[(int) (Math.random() * count)];
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        try{
+            for (T t : array) {
+                sb.append(t.toString()).append("\n");
+            }
+        } catch (NullPointerException e) {
+            sb.append("null");
+        }
+        return sb.toString();
     }
 }

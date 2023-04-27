@@ -1,30 +1,23 @@
 package com.fosanzdev.BlackJack.Players.Strategies;
 
+import com.fosanzdev.BlackJack.Cartas.Mano;
 import com.fosanzdev.BlackJack.Game.Mesa;
 
-public class ConservativeChecked extends Strategy implements IStrategy {
+public class ConservativeChecked extends Strategy{
 
-    ConservativeChecked(Mesa mesa){
-        super(mesa);
-    }
-
-
-    public boolean hit(int score) {
+    public boolean hit(int score, Mano mano, Mesa mesa) {
         return false;
     }
 
-
-    public boolean doubleIt(int score) {
+    public boolean doubleIt(int score, Mano mano, Mesa mesa) {
         return false;
     }
 
-
-    public boolean split(int score) {
+    public boolean split(int score, Mano mano, Mesa mesa) {
         return false;
     }
 
-
-    public boolean secure(int score) {
+    public boolean secure(int score, Mano mano, Mesa mesa) {
         return false;
     }
 }
