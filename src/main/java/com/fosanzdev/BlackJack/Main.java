@@ -6,6 +6,13 @@ import com.fosanzdev.jresources.JMenuGenerator;
 
 import java.util.Scanner;
 
+/**
+ * Clase Main
+ * Contiene el método main del programa
+ * Implementa la interfaz JMenuGenerator para generar los menús.
+ * JMenuGenerator es un generador de menus propia de la librería JResources de @FosanzDev
+ * @see com.fosanzdev.jresources.JMenuGenerator
+ */
 public class Main {
 
     private static final JugadorHumano defaultPlayer = new JugadorHumano("Jugador", 1000);

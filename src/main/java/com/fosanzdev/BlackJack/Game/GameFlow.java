@@ -8,16 +8,21 @@ import com.fosanzdev.BlackJack.Players.Strategies.Strategy;
 
 public class GameFlow {
 
+    // Default values for the game
+
     public static final int DEFAULT_PLAYERS = 3;
     public static final int DEFAULT_BASE_BET = 10;
     public static final int DEFAULT_PLAYER_MONEY = 500;
 
+
+    // Game variables
     private int numPlayers;
     private int baseBet;
     private int playerMoney;
     private int dealerMoney;
     private final Mesa mesa;
 
+    //Constructor
     public GameFlow(int numPlayers, int baseBet, int playerMoney, JugadorHumano jugador) {
         // NOTE: This is the constructor that is called from the main method
         this.numPlayers = numPlayers;
@@ -42,6 +47,7 @@ public class GameFlow {
         this(DEFAULT_PLAYERS, DEFAULT_BASE_BET, DEFAULT_PLAYER_MONEY, jugador);
     }
 
+    //Setters
     public void setBaseBet(int baseBet) {
         this.baseBet = baseBet;
     }
@@ -58,6 +64,7 @@ public class GameFlow {
         this.numPlayers = numPlayers;
     }
 
+    //TODO: newGame() and startRound() are the same method ???
     public void newGame(){
         mesa.nuevoMazo();
         for (Jugador jugador : mesa.getJugadores()) {

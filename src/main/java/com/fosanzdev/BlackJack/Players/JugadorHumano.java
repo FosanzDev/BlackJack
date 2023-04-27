@@ -2,6 +2,11 @@ package com.fosanzdev.BlackJack.Players;
 
 import com.fosanzdev.BlackJack.Cartas.Carta;
 import com.fosanzdev.BlackJack.Cartas.Mano;
+
+/**
+ * Clase JugadorHumano
+ * Define los atributos y métodos de los jugadores humanos
+ */
 public class JugadorHumano extends Jugador{
 
     public JugadorHumano(String nombre, int dinero) {

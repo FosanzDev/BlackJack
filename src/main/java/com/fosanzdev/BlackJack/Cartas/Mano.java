@@ -2,6 +2,11 @@ package com.fosanzdev.BlackJack.Cartas;
 
 import com.fosanzdev.BlackJack.DataStructures.JArrayList;
 
+/**
+ * Clase Mano
+ * Contiene un ArrayList de cartas y los metodos para añadir cartas a la mano y resetearla
+ * Tambien contiene un metodo para calcular la suma de las cartas de la mano
+ */
 public class Mano {
 
     private final JArrayList<Carta> cartas;
@@ -28,6 +33,10 @@ public class Mano {
         cartas.clear();
     }
 
+    /**
+     * Calcula la suma de las cartas de la mano
+     * @return int con la suma de las cartas
+     */
     public int getSum(){
         // Suma de las cartas de la mano
         boolean as = false;

@@ -2,6 +2,11 @@ package com.fosanzdev.BlackJack.Cartas;
 
 import com.fosanzdev.BlackJack.DataStructures.JArrayList;
 
+/**
+ * Clase Baraja
+ * Contiene un ArrayList de cartas y los metodos para barajar y coger una carta
+ * Tambien contiene un metodo para calcular el numero de cartas restantes
+ */
 public class Baraja {
 
     private JArrayList<Carta> baraja;

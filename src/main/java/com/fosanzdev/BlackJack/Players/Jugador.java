@@ -2,6 +2,11 @@ package com.fosanzdev.BlackJack.Players;
 
 import com.fosanzdev.BlackJack.Cartas.Mano;
 
+/**
+ * Clase Jugador
+ * Define los atributos y métodos de los jugadores
+ * Tambien contiene la mano del jugador y su apuesta
+ */
 public abstract class Jugador {
 
     protected String nombre;
