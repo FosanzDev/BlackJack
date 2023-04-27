@@ -1,5 +1,9 @@
 package com.fosanzdev.BlackJack.DataStructures;
 
+import com.fosanzdev.BlackJack.Players.Jugador;
+import com.fosanzdev.BlackJack.Players.JugadorHumano;
+import com.fosanzdev.BlackJack.Players.JugadorIA;
+
 import java.util.Iterator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
@@ -12,6 +16,12 @@ public class JArrayList<T> implements Iterable<T>{
     private T[] array = (T[]) new Object[DEFAULT_SIZE];
 
     private int count = 0;
+
+    public JArrayList(Jugador[] jugadores) {
+    }
+
+    public JArrayList() {
+    }
 
     public void add(T value) {
         if (count == array.length) {

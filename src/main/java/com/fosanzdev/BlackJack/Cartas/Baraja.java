@@ -6,6 +6,9 @@ public class Baraja {
 
     private JArrayList<Carta> baraja;
 
+    /**
+     * Creacion de las combinaciones Palo-Valor
+     */
     public Baraja() {
         baraja = new JArrayList<>();
         for (Palos palo : Palos.values()) {
@@ -15,6 +18,9 @@ public class Baraja {
         }
     }
 
+    /**
+     * Barajar las cartas con una baraja auxiliar
+     */
     public void barajar() {
         JArrayList<Carta> barajaAux = new JArrayList<>();
         while (!baraja.isEmpty()) {
@@ -25,12 +31,20 @@ public class Baraja {
         baraja = barajaAux;
     }
 
+    /**
+     * Coger una carta de la baraja
+     * @return Carta superior de la baraja
+     */
     public Carta getCarta() {
         Carta carta = baraja.get(0);
         baraja.del(0);
         return carta;
     }
 
+    /**
+     * Calcula el numero de cartas restantes
+     * @return int con el número de cartas
+     */
     public int getNumCartas() {
         return baraja.size();
     }

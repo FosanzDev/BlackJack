@@ -7,7 +7,7 @@ public abstract class Jugador {
     protected String nombre;
     protected int dinero;
     protected int apuesta;
-    protected Mano mano;
+    public Mano mano;
 
     public Jugador(String nombre, int dinero) {
         this.nombre = nombre;
