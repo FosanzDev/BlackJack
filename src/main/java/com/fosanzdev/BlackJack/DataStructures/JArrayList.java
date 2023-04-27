@@ -115,4 +115,8 @@ public class JArrayList<T> implements Iterable<T>{
     public Spliterator<T> spliterator() {
         return Iterable.super.spliterator();
     }
+
+    public T getRandom() {
+        return array[(int) (Math.random() * count)];
+    }
 }

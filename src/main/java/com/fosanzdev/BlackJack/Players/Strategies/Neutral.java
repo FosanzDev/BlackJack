@@ -1,8 +1,13 @@
 package com.fosanzdev.BlackJack.Players.Strategies;
 
-public class Neutral implements Strategy{
+import com.fosanzdev.BlackJack.Game.Mesa;
 
-    // Neutral strategy
+public class Neutral extends Strategy implements IStrategy {
+
+
+    Neutral(Mesa mesa){
+        super(mesa);
+    }
 
     // Hit if score is less than 17
     public boolean hit(int score){

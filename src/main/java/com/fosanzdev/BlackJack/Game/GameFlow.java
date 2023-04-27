@@ -2,8 +2,8 @@ package com.fosanzdev.BlackJack.Game;
 
 import com.fosanzdev.BlackJack.DataStructures.JArrayList;
 import com.fosanzdev.BlackJack.Players.JugadorIA;
-import com.fosanzdev.BlackJack.Players.Strategies.StrategyFactory;
 import com.fosanzdev.BlackJack.Players.Jugador;
+import com.fosanzdev.BlackJack.Players.Strategies.Strategy;
 
 public class GameFlow {
 
@@ -28,7 +28,7 @@ public class GameFlow {
         this(DEFAULT_PLAYERS, DEFAULT_BASE_BET, DEFAULT_PLAYER_MONEY, jugadores);
         this.mesa = new Mesa(
                 new JArrayList<Jugador>(jugadores),
-                new JugadorIA("Crupier", dealerMoney, StrategyFactory.getRandomStrategy())
+                new JugadorIA("Crupier", dealerMoney, Strategy.getRandomStrategy())
         );
     }
 

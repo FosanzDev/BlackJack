@@ -1,8 +1,16 @@
 package com.fosanzdev.BlackJack.Players.Strategies;
 
-public interface Strategy {
-    public boolean hit(int score);
-    public boolean doubleIt(int score);
-    public boolean split(int score);
-    public boolean secure(int score);
+import com.fosanzdev.BlackJack.DataStructures.JArrayList;
+import com.fosanzdev.BlackJack.Game.Mesa;
+
+public abstract class Strategy {
+    protected static final JArrayList<Strategy> strategies = new JArrayList<>();
+
+    public Strategy(Mesa mesa){
+        strategies.add(this);
+    }
+
+    public static Strategy getRandomStrategy() {
+        return strategies.getRandom();
+    }
 }
